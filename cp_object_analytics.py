@@ -101,17 +101,21 @@ def main(argv):
             while k < limit:
                 objname = show_unused_objects['objects'][k]['name']
                 otype = show_unused_objects['objects'][k]['type']
-                # dtype = show_unused_objects['objects'][k]['domain']['domain-type']
+                
                 #Incase of debug uncomment the following lines
+                # dtype = show_unused_objects['objects'][k]['domain']['domain-type']
                 # print ("count = " + str(count))
                 # print (dtype)
                 # print (objname)
                 # print (otype)
-                if otype in ["group", "network", "host", "address-range"]:
-                    print ("Please consider deleting : " + objname +" : Object Type : "+ otype )            
-                    Ofile = open("unused_objects_output_" + currdt + ".txt", "a")
-                    Ofile.write(objname + "\n") 
-                    Ofile.close()
+                
+                # incase if we need to only certain types of objects
+                # if otype in ["group", "network", "host", "address-range"]:
+
+                print ("Please consider deleting : " + objname +" : Object Type : "+ otype )            
+                Ofile = open("unused_objects_output_" + currdt + ".txt", "a")
+                Ofile.write(objname + "\n") 
+                Ofile.close()
                 k += 1
                 # Incase of debug uncomment the following line
                 # count += 1
